@@ -1,0 +1,45 @@
+body {
+    background-color: #141414;
+    color: #fff;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* CAROUSEL */
+
+.carousel-inner {
+    overflow: unset !important;
+}
+
+.carousel-inner .row img {
+    cursor: pointer;
+    width: 100%;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.card .card-inner-content {
+    position: absolute;
+    background-color: #272727;
+}
+
+.card .card-inner-content p {
+    font-size: 12px;
+}
+
+.card:hover .card-inner-content {
+    top: -60px;
+    display: block !important;
+}
