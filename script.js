@@ -1,4 +1,4 @@
-// Netflix fake api
+/* ---------------- NETFLIX CLONE SHOWS API - ARRAY SHOWS ---------------- */
 let shows = [
     {
       "titolo": "Unorthodox",
@@ -126,9 +126,10 @@ let shows = [
       "trama": "Un uomo gentile ma fragile finisce per essere coinvolto in affari criminali per proteggere la sua famiglia, portando a conseguenze tragiche.",
       "immagine": "assets/movies/18.png"
     }
-];
-  
-// Funzione che mescola l'array shows 
+]
+
+
+/* ------------- FUNZIONE PER MESCOLARE ELEMENTI DI UN ARRAY ------------- */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -136,10 +137,28 @@ function shuffleArray(array) {
     }
 }
 
-// Card Builder
-const carousels = document.querySelectorAll(".carousel-inner .row");
 
-// Card controllers - html statico
+/* -------------------- CREAZIONE CONTENUTI CAROSELLI -------------------- */
+
+// Inizializzo la variabile che definisce il numero massimo di card per singolo carousel item
+let maxCardsPerItem;
+
+// Imposto un numero massimo di card in base al dispositivo (basato sulle mediaquery di bootstrap)
+if (window.innerWidth <= 576) {
+    // mobile
+    maxCardsPerItem = 2;
+} else if (window.innerWidth <= 768) {
+    // tablet
+    maxCardsPerItem = 5;
+} else {
+    // desktop
+    maxCardsPerItem = 7;
+}
+
+// Puntatore ai caroselli presenti in pagina
+const carousels = document.querySelectorAll(".carousel-inner");
+
+// Card controllers - html statico (costruito fuori dall ciclo per non appesantire il codice)
 const cardControllers = `
     <div class="d-flex align-items-center justify-content-between pt-3 px-3">
         <div class="d-flex align-items-center">
@@ -158,39 +177,140 @@ const cardControllers = `
         </button>                             
     </div>
 `
-// Ciclo sui caroselli presenti in pagina
+
+// Ciclo sui tutti i caroselli presenti in pagina
 carousels.forEach(carousel => {
 
     // Parte la funzione che mescola l'array shows
     shuffleArray(shows);
-    
-    // Ciclo sull'array shows
+
+    // Creo un carousel item
+    let carouselItem = document.createElement("div");
+    carouselItem.classList.add("carousel-item", "active");
+
+    // Creo un carousel row
+    let carouselRow = document.createElement("div");
+    carouselRow.classList.add("row", "flex-nowrap");
+
+    // Aggiungo il carousel row al carousel item
+    carouselItem.appendChild(carouselRow);
+
+    // Inizializzo il contatore del numero di card prima di ciclare l'array shows
+    let cardCount = 0;
+
+    // Ciclo l'array shows per creare i contenuti delle card da inserire dentro i caroselli
     for (let i = 0; i < shows.length; i++) {
+
+        // Check sul numero di card - se raggiunge il limite di card esegue il blocco 
+        if (cardCount >= maxCardsPerItem) {
+
+            // Aggiungo il carousel item (con il massimo delle card) al carousel
+            carousel.appendChild(carouselItem);
+
+            // Creo un nuovo carousel item vuoto per la prossima iterazione
+            carouselItem = document.createElement("div");
+            carouselItem.classList.add("carousel-item");
+
+            // Creo un nuovo carousel row vuoto per la prossima iterazione
+            carouselRow = document.createElement("div");
+            carouselRow.classList.add("row", "flex-nowrap");
+            carouselItem.appendChild(carouselRow);
+
+            // Resetto il contatore di card per la prossima iterazione
+            cardCount = 0;
+        }
 
         // Creo la card
         let card = document.createElement("div");
-    
+
         // Aggiungo le classi bootstrap alla card
-        card.classList.add("card", "bg-transparent", "col-6", "col-md-3", "col-lg-2", "px-lg-1", "border-0");
+        card.classList.add("card", "bg-transparent", "border-0", "px-0", "px-sm-1", "col-6", "col-md-3", "col-lg-2");
     
         // Aggiungo i contenuti alla card
         card.innerHTML = `
-            <img src="${shows[i].immagine}" alt="${shows[i].titolo}" />
-            <div class="card-inner-content d-none rounded-bottom-2">
-                <img class="rounded-top-2" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
+            <img loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
+            <div class="card-inner-content d-none rounded-2">
+                <img class="rounded-top" loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
                 ${cardControllers}
                 <div class="p-3">
                     <div class="d-flex align-items-center justify-content-between">
-                        <h4 class="fs-6 fw-bold m-0">${shows[i].titolo}</h4>
-                        <span class="year fst-italic">${shows[i].anno}</span>
+                        <h4 class="show-title fw-bold m-0">${shows[i].titolo}</h4>
+                        <span class="show-detail fst-italic">${shows[i].anno}</span>
                     </div>
-                    <p class="m-0 py-2">${shows[i].trama}</p>
-                    <span class="genres text-capitalize text-small">${shows[i].genere}</span>
+                    <div class="show-detail">
+                        <p class="m-0 py-2">${shows[i].trama}</p>
+                        <span class="text-capitalize fw-bold">${shows[i].genere}</span>
+                    </div>
                 </div>
             </div>
         `;
     
-        // Includo la card nel carousel 
-        carousel.appendChild(card);
-    };  
+        // Includo la card nel carousel row
+        carouselRow.appendChild(card);
+
+        // Incremento il contatore di card
+        cardCount++;
+    }
+
+    // Aggiungo il carousel item al carousel
+    carousel.appendChild(carouselItem);
 });
+
+
+/* -------------- MOSTRA FRECCIA SX DOPO CLICK SU FRECCIA DX ------------- */
+
+// Punto tutte le frecce a dx
+const rightArrows = document.getElementsByClassName("carousel-control-next");
+
+// Ciclo su tutte le freccie a dx 
+for (let i = 0; i < rightArrows.length; i++) {
+    rightArrows[i].addEventListener('click', function(){
+        // Punto la freccia a sx
+        const prevArrow = rightArrows[i].previousElementSibling;
+        // Rimuovo classe bootstrap display none
+        prevArrow.classList.remove('d-none');
+    })
+}
+
+
+/* -------------- FUNZIONE LAZY LOAD CAROSELLI ------------- */
+function carouselLazyLoad() {
+
+    // Puntatore ai caroselli con opacity 0
+    const hiddenCarousels = document.querySelectorAll(".carousel-inner.opacity-0");
+
+    // Posizione dello scroll
+    const scrollPosition = window.scrollY;
+
+    // Ciclo su tutti i caroselli
+    hiddenCarousels.forEach((carousel, i) => {
+
+        // Prendo la posizione sulla pagina del singolo carosello
+        const rect = carousel.getBoundingClientRect();
+        // Calcolo altezza elemento
+        const elementHeight = rect.height;
+        // Calcolo posizione elemento - altezza elemento
+        const elementPosition = rect.top - elementHeight;
+
+        // Se lo scroll raggiunge la posizione di trigger eseguo il codice
+        if (scrollPosition >= elementPosition && carousel.classList.contains("opacity-0")) {
+            // rimuovo classe bootstrap per opacity
+            carousel.classList.remove("opacity-0");
+            // aggiungo classe per animazione fadeIn
+            carousel.classList.add("fade-in");
+
+            setTimeout(function() {
+                carousel.classList.remove("fade-in");
+
+                // Controlla se tutte le animazioni sono state completate
+                if (i === hiddenCarousels.length) {
+                    // Rimuovi l'event listener dello scroll
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            }, 1000); // Stesso timing dell'animazione
+        }
+    });
+}
+
+// Event listener sullo scroll parte la funzione
+window.addEventListener('scroll', carouselLazyLoad);

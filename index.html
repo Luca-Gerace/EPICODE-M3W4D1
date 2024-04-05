@@ -12,83 +12,116 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Header -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navbar">
-            <div class="container-xl">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pippo" aria-controls="pippo" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img class="logo" src="assets/netflix-logo.png" alt="logo" />
-                </a>
-                <div class="collapse navbar-collapse" id="pippo">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Tv Shows</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Recently Added</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My List</a>
-                        </li>
-                    </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark justify-content-between px-lg-5 py-3" aria-label="Menu">
+            <div class="container-fluid justify-content-start px-0">
+                <div>
+                    <button class="navbar-toggler border-0 text-opacity-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation bar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img class="logo" src="assets/netflix-logo.png" alt="logo" />
+                    </a>
                 </div>
-                <ul class="navbar-nav d-flex align-items-center">
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">
-                            <i class="bi-search"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">KIDS</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link" href="#">
-                            <i class="bi-bell-fill"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <div class="dropdown text-end">
-                            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://avatars.githubusercontent.com/u/66672394" alt="user img" width="32" height="32">
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                    <div class="offcanvas-header justify-content-between pb-0">
+                        <div class="d-lg-none d-flex">
+                            <a href="#" class="d-block">
+                                <img src="https://avatars.githubusercontent.com/u/66672394" alt="user img" width="48" height="48">
                             </a>
-                            <ul class="dropdown-menu bg-dark rounded-0 text-small">
-                                <li>
-                                    <a class="dropdown-item text-light" href="#">
-                                        Gestisci profilo
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-light" href="#">
-                                        Account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-light" href="#">
-                                        Centro assistenza
-                                    </a>
-                                </li>
-                                <li><hr class="dropdown-divider bg-light"></li>
-                                <li><a class="dropdown-item text-light" href="#">Sign out</a></li>
-                            </ul>
+                            <div class="ps-3">
+                                <p class="fw-bold m-0">Nome utente</p>
+                                <a href="#" class="text-light">
+                                    <small>Cambia profilo</small>
+                                </a>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav flex-grow-1 pe-3">
+                            <li class="d-lg-none d-block nav-item">
+                                <a class="nav-link" href="#">
+                                    Account
+                                </a>
+                            </li>
+                            <li class="d-lg-none d-block nav-item">
+                                <a class="nav-link" href="#">
+                                    Centro assistenza
+                                </a>
+                            </li>
+                            <li class="d-lg-none d-block nav-item">
+                                <a class="nav-link" href="#">
+                                    Log out
+                                </a>
+                            </li>
+                            <li class="d-lg-none d-block"><hr class="bg-light"></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Tv Shows</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Movies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Recently Added</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">My List</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <ul class="navbar-nav d-lg-flex d-none flex-row align-items-center">
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#">
+                        <i class="bi-search"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#">KIDS</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#">
+                        <i class="bi-bell-fill"></i>
+                    </a>
+                </li>
+                <li class="nav-item px-2">
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://avatars.githubusercontent.com/u/66672394" alt="user img" width="32" height="32">
+                        </a>
+                        <ul id="user-menu" class="dropdown-menu bg-dark rounded-0 text-small">
+                            <li>
+                                <a class="dropdown-item text-light bg-transparent" href="#">
+                                    Gestisci profilo
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light bg-transparent" href="#">
+                                    Account
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-light bg-transparent" href="#">
+                                    Centro assistenza
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider bg-light"></li>
+                            <li><a class="dropdown-item text-light bg-transparent" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </nav>
     </header>
 
     <!-- Section controllers -->
-    <div class="container-xl py-3 d-flex align-items-center justify-content-between">
+    <div class="container-fluid px-lg-5 py-3 d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
             <h2 class="text-light m-0">TV Shows</h2>
             <div class="btn-group px-4">
@@ -111,32 +144,128 @@
         </div>
     </div>
 
-    <!-- Slider #1 -->
-    <div class="container-lg py-4">
+    <!-- Carousel #1 -->
+    <div class="container-fluid px-lg-5 py-4">
         <div class="row pb-2">
             <div class="col">
                 <h3 class="text-light text-capitalize">Trending now</h3>
             </div>
         </div>
-        <div id="slider1" class="carousel slide" data-bs-touch="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row d-flex flex-nowrap">
-                        <!-- dynamic cards -->
-                    </div>
-                </div>
+        <div id="carousel1" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2">
+                <!-- Carousel item with cards -->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#slider1" data-bs-slide="prev">
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#slider1" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </button>
         </div>
     </div>
 
+    <!-- Carousel #2 -->
+    <div class="container-fluid px-lg-5 py-4">
+        <div class="row pb-2">
+            <div class="col">
+                <h3 class="text-light text-capitalize">Watch it again</h3>
+            </div>
+        </div>
+        <div id="carousel2" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2">
+                <!-- Carousel item with cards -->
+            </div>
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Carousel #3 -->
+    <div class="container-fluid px-lg-5 py-4">
+        <div class="row pb-2">
+            <div class="col">
+                <h3 class="text-light text-capitalize">New releases</h3>
+            </div>
+        </div>
+        <div id="carousel3" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2">
+                <!-- Carousel item with cards -->
+            </div>
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>  
+    
+    <!-- Carousel #4 -->
+    <div class="container-fluid px-lg-5 py-4">
+        <div class="row pb-2">
+            <div class="col">
+                <h3 class="text-light text-capitalize">Most viewed</h3>
+            </div>
+        </div>
+        <div id="carousel4" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2 opacity-0">
+                <!-- Carousel item with cards -->
+            </div>
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>      
+
+    <!-- Carousel #5 -->
+    <div class="container-fluid px-lg-5 py-4">
+        <div class="row pb-2">
+            <div class="col">
+                <h3 class="text-light text-capitalize">Chosen for you</h3>
+            </div>
+        </div>
+        <div id="carousel5" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2 opacity-0">
+                <!-- Carousel item with cards -->
+            </div>
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>  
+
+    <!-- Carousel #6 -->
+    <div class="container-fluid px-lg-5 py-4">
+        <div class="row pb-2">
+            <div class="col">
+                <h3 class="text-light text-capitalize">Awarded films</h3>
+            </div>
+        </div>
+        <div id="carousel6" class="carousel slide px-2 pe-lg-5 ps-lg-0" data-bs-touch="false">
+            <div class="carousel-inner px-2 opacity-0">
+                <!-- Carousel item with cards -->
+            </div>
+            <button class="carousel-control-prev d-none" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>      
+
     <!-- Footer -->
-    <footer class="container py-5 my-5">
+    <footer class="container-fluid px-lg-5 py-5 my-5">
         <div class="row">
             <div class="col">
                 bla bla
