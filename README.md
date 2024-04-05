@@ -17,8 +17,8 @@ Per eseguire questo progetto in locale, segui questi passaggi:
 2. Apri `index.html` nel tuo browser web 🌐
 
 ## Obiettivi 🎯
-- Riprodurre il seguente mockup della pagina di Netflix il più fedelmente possibile 🖥️
-  👉 [Mockup Netflix Home](https://github.com/Luca-Gerace/EPICODE-M3W4D1/blob/main/assets/mockup-netflix-home.png) 👈
+- Riprodurre il seguente mockup della pagina di Netflix il più fedelmente possibile
+    👉 [Mockup Netflix Home](https://github.com/Luca-Gerace/EPICODE-M3W4D1/blob/main/assets/mockup-netflix-home.png) 👈
 - Utilizzare Bootstrap per il sistema di griglie e per i componenti 📐
 - Design responsive, ottimizzato per tutti i dispositivi 📱💻
 
