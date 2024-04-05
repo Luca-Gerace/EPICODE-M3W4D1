@@ -1,6 +1,6 @@
 # Netflix Clone
 Questo progetto è un clone di Netflix che mira a replicare l'interfaccia utente della popolare piattaforma di streaming. È realizzato utilizzando HTML, Bootstrap, JavaScript e un tocco di CSS personalizzato
-(con l'obiettivo personale di restare sotto il 5% del totale del codice, in modo da affidarmi quasi totalmente a Bootstrap per lo stile della pagina).
+(con l'obiettivo personale di restare intorno al 5% del totale del codice, in modo da affidarmi quasi totalmente a Bootstrap per lo stile della pagina).
 
 ## Tecnologie Utilizzate 💻
 - HTML
