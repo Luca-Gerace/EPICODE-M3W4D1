@@ -17,7 +17,6 @@ body {
 }
 
 .offcanvas {
-    max-width: 80%;
     background-color: #141414;
 }
 
@@ -28,12 +27,10 @@ body {
 
 .carousel-inner .row img {
     cursor: pointer;
-    width: 100%;
 }
 
 /* CAROUSEL CONTROLLERS */
 button[class*=carousel-control-] {
-    opacity: 1;
     width: 10%;
 }
 

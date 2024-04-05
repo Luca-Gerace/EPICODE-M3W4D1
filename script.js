@@ -230,7 +230,7 @@ carousels.forEach(carousel => {
         card.innerHTML = `
             <img loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
             <div class="card-inner-content d-none position-absolute rounded-2">
-                <img class="rounded-top" loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
+                <img class="rounded-top img-fluid" loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
                 ${cardControllers}
                 <div class="text-white p-3">
                     <div class="d-flex align-items-center justify-content-between">
