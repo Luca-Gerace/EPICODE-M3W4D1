@@ -224,15 +224,15 @@ carousels.forEach(carousel => {
         let card = document.createElement("div");
 
         // Aggiungo le classi bootstrap alla card
-        card.classList.add("card", "bg-transparent", "border-0", "px-0", "px-sm-1", "col-6", "col-md-3", "col-lg-2");
+        card.classList.add("card", "position-relative", "z-1", "bg-transparent", "border-0", "px-0", "px-sm-1", "col-6", "col-md-3", "col-lg-2");
     
         // Aggiungo i contenuti alla card
         card.innerHTML = `
             <img loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
-            <div class="card-inner-content d-none rounded-2">
+            <div class="card-inner-content d-none position-absolute rounded-2">
                 <img class="rounded-top" loading="lazy" src="${shows[i].immagine}" alt="${shows[i].titolo}" />
                 ${cardControllers}
-                <div class="p-3">
+                <div class="text-white p-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <h4 class="show-title fw-bold m-0">${shows[i].titolo}</h4>
                         <span class="show-detail fst-italic">${shows[i].anno}</span>
@@ -303,14 +303,14 @@ function carouselLazyLoading() {
                 carousel.classList.remove("opacity-0");
                 // aggiungo classe per animazione fadeIn
                 carousel.classList.add("fade-in");
-            }, 250); // Stesso timing dell'animazione
+            }, 250); // Imposto un timeout per rendere l'animazione visibile
 
             setTimeout(function() {
                 carousel.classList.remove("fade-in");
 
-                // Controlla se tutte le animazioni sono state completate
+                // Controllo se tutte le animazioni sono state completate
                 if (i === hiddenCarousels.length) {
-                    // Rimuovi l'event listener dello scroll
+                    // Rimuovo l'event listener dello scroll
                     window.removeEventListener('scroll', carouselLazyLoading);
                 }
             }, 1000);
