@@ -35,16 +35,19 @@ body {
 }
 
 /* CAROUSEL CONTROLLERS */
+button[class*=carousel-control-] {
+    opacity: 1;
+    width: 10%;
+}
+
 button.carousel-control-prev {
     background: linear-gradient(-90deg, transparent, #141414);
-    width: 10%;
-    left: -10px;
+    left: -12px;
 }
 
 button.carousel-control-next {
-    background: linear-gradient(90deg, transparent, #141414);
-    width: 10%;
-    right: -10px;
+    background: linear-gradient(90deg, transparent, #141414) !important;
+    right: -12px;
 }
 
 /* FADE IN ANIMATION */

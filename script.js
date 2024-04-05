@@ -173,7 +173,7 @@ const cardControllers = `
             </button> 
         </div>
         <button type="button" class="btn btn-outline-light btn-sm rounded-5">
-            <i class="bi-arrow-bar-down"></i>
+        <i class="bi bi-chevron-down"></i>
         </button>                             
     </div>
 `
@@ -274,7 +274,7 @@ for (let i = 0; i < rightArrows.length; i++) {
 
 
 /* -------------- FUNZIONE LAZY LOAD CAROSELLI ------------- */
-function carouselLazyLoad() {
+function carouselLazyLoading() {
 
     // Puntatore ai caroselli con opacity 0
     const hiddenCarousels = document.querySelectorAll(".carousel-inner.opacity-0");
@@ -287,17 +287,23 @@ function carouselLazyLoad() {
 
         // Prendo la posizione sulla pagina del singolo carosello
         const rect = carousel.getBoundingClientRect();
-        // Calcolo altezza elemento
-        const elementHeight = rect.height;
-        // Calcolo posizione elemento - altezza elemento
-        const elementPosition = rect.top - elementHeight;
 
-        // Se lo scroll raggiunge la posizione di trigger eseguo il codice
+        // Calcolo posizione elemento - altezza viewport
+        const elementPosition = rect.top - window.innerHeight;
+
+        /* 
+        Se lo scroll raggiunge la posizione di trigger
+        e l'animazione sul singolo carousel non è stata ancora fatta 
+        eseguo il codice del blocco
+        */
         if (scrollPosition >= elementPosition && carousel.classList.contains("opacity-0")) {
-            // rimuovo classe bootstrap per opacity
-            carousel.classList.remove("opacity-0");
-            // aggiungo classe per animazione fadeIn
-            carousel.classList.add("fade-in");
+
+            setTimeout(function() {
+                // rimuovo classe bootstrap per opacity
+                carousel.classList.remove("opacity-0");
+                // aggiungo classe per animazione fadeIn
+                carousel.classList.add("fade-in");
+            }, 250); // Stesso timing dell'animazione
 
             setTimeout(function() {
                 carousel.classList.remove("fade-in");
@@ -305,12 +311,12 @@ function carouselLazyLoad() {
                 // Controlla se tutte le animazioni sono state completate
                 if (i === hiddenCarousels.length) {
                     // Rimuovi l'event listener dello scroll
-                    window.removeEventListener('scroll', handleScroll);
+                    window.removeEventListener('scroll', carouselLazyLoading);
                 }
-            }, 1000); // Stesso timing dell'animazione
+            }, 1000);
         }
     });
 }
 
 // Event listener sullo scroll parte la funzione
-window.addEventListener('scroll', carouselLazyLoad);
+window.addEventListener('scroll', carouselLazyLoading);
