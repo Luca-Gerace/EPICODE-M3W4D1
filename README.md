@@ -25,7 +25,3 @@ Per eseguire questo progetto in locale, segui questi passaggi:
 - Inserire un numero variabile di `cards` all'interno di `carousel-item > carousel-row` a seconda del dispositivo in uso 🃏
 - Mostrare la freccia di scorrimento indietro del carosello solo al click sulla freccia di scorrimento avanti 🔙
 - Creazione della funzione di Lazy loading dei caroselli utilizzando un event listener sullo scroll 🔄
-
----
-
-Sentiti libero di personalizzare e migliorare questo progetto secondo le tue preferenze e requisiti. Buon coding! 🎬

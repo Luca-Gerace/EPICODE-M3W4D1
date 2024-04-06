@@ -49,6 +49,7 @@ button.carousel-control-next {
     opacity: 0;
     animation: fadeIn 1.5s linear forwards;
 }
+
 @keyframes fadeIn {
     from {
       opacity: 0;
