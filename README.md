@@ -11,6 +11,7 @@ Questo progetto è un clone di Netflix che mira a replicare l'interfaccia utente
 Per eseguire questo progetto in locale, segui questi passaggi:
 1. Clona il repository: `git clone https://github.com/Luca-Gerace/EPICODE-M3W4D1.git`
 2. Apri `index.html` nel tuo browser web 🌐
+3. Per una **corretta visualizzazione della pagina su diversi dispositivi** occorre necessariamente **ricaricare la pagina** dopo la selezione del dispositivo dal web inspector in modo da far **rigirare il codice javascript** ⚙️
 
 ## Obiettivi 🎯
 - Riprodurre il seguente mockup della pagina di Netflix il più fedelmente possibile
@@ -19,12 +20,11 @@ Per eseguire questo progetto in locale, segui questi passaggi:
 - Design responsive, ottimizzato per tutti i dispositivi 📱💻
 
 ## Extra ✨
-- Creazione dinamica dei contenuti presenti nei caroselli partendo dall'array `shows` 🏗️
+- Creazione dinamica delle `cards` presenti nei caroselli partendo dall'array `shows` 🏗️
 - Mescolare gli oggetti dell'array `shows` per restituire contenuti differenti nei vari caroselli 🎲
-- Le card con film/serie TV vengono create ciclando l'array `shows` 📺
-- Inserite X `cards` all'interno di `carousel-item > carousel-row` a seconda del dispositivo in uso 🃏
+- Inserire un numero variabile di `cards` all'interno di `carousel-item > carousel-row` a seconda del dispositivo in uso 🃏
 - Mostrare la freccia di scorrimento indietro del carosello solo al click sulla freccia di scorrimento avanti 🔙
-- Funzione per il Lazy loading dei caroselli 🔄
+- Creazione della funzione di Lazy loading dei caroselli utilizzando un event listener sullo scroll 🔄
 
 ---
 
